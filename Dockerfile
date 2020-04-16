@@ -18,5 +18,5 @@ CMD ["nginx", "-g", "daemon off;"]
 
 
 ## docker build -t cscfutsal-frontend .
-## docker run -p 80:80 cscfutsal-frontend
+## docker run -p 80:80 -d cscfutsal-frontend
 ## docker stop cscfutsal-frontend
