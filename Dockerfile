@@ -1,4 +1,4 @@
-FROM node:alpine
+FROM node:10
 
 # Create app directory
 RUN mkdir /CSCFUTSAL-FRONTEND
