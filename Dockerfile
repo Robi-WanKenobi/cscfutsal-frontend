@@ -7,7 +7,7 @@ COPY package.json /CSCFUTSAL-FRONTEND
 RUN cd /CSCFUTSAL-FRONTEND
 
 # If you are building your code for production
-RUN npm install
+RUN npm install --production
 RUN npm install -g @angular/cli
 
 # Bundle app source
