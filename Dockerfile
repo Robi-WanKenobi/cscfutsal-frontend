@@ -13,7 +13,7 @@ RUN npm install -g @angular/cli
 
 # Bundle app source
 COPY . /CSCFUTSAL-FRONTEND
-RUN ng build --output-path=dist
+RUN ng build --prod --output-path=dist
 
 FROM nginx:1.16.0-alpine
 COPY --from=build /app/dist /usr/share/nginx/html
