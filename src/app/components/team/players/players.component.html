@@ -1,0 +1,25 @@
+<h1 class="fs-l mt-4 text-muted text-center t-dark animated fadeIn slow">{{equipo?.nombre}}</h1>
+<hr>
+<div *ngIf="loading"
+    class="text-center animated fadeIn fast mb-4 mt-4">
+    <i class="fas fa-spinner t-orange fa-spin fa-2x"></i>
+</div>
+<div *ngIf="!loading"
+    class="animated fadeIn slow">
+    <h2 *ngIf="jugadores.length !== 0"
+        class="fs-l text-center t-orange">Jugadors</h2>
+    <div class="row no-gutters mt-5 ml-4">
+        <app-player-card class="player-card"
+            *ngFor="let jugador of jugadores"
+            [jugador]="jugador">
+        </app-player-card>
+    </div>
+    <h2 *ngIf="tecnicos.length !== 0"
+        class="fs-l text-center t-orange mt-4">Tècnics</h2>
+    <div class="row no-gutters mt-5 ml-4">
+        <app-player-card class="player-card"
+            *ngFor="let tecnico of tecnicos"
+            [jugador]="tecnico">
+        </app-player-card>
+    </div>
+</div>

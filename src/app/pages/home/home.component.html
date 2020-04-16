@@ -1,0 +1,17 @@
+<div class="row mt-4 ml-0 mr-0 animated fadeIn">
+    <div class="col-md-6">
+        <app-matches [type]="'Últims'"
+            [jornada]="current"
+            [equipos]="equipos">
+        </app-matches>
+    </div>
+    <div class="col-md-6">
+        <app-matches [type]="'Propers'"
+            [jornada]="next"
+            [equipos]="equipos">
+        </app-matches>
+    </div>
+    <div class="col-md-12">
+        <app-home-stats></app-home-stats>
+    </div>
+</div>

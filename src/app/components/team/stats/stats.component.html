@@ -1,0 +1,106 @@
+<h1 class="fs-l mt-4 text-muted text-center t-dark animated fadeIn slow">{{equipo?.nombre}}</h1>
+<hr>
+<div *ngIf="loading"
+    class="text-center animated fadeIn fast mb-4 mt-4">
+    <i class="fas fa-spinner t-orange fa-spin fa-2x"></i>
+</div>
+<div class="tool-bar animated fadeIn">
+    <div class="row no-gutters justify-content-center">
+        <div class="col-md-8">
+            <input class="form-control sharp-borders search-input"
+                [(ngModel)]="searchText"
+                placeholder="Cerca per nom o posició">
+        </div>
+    </div>
+    <div class="row no-gutters justify-content-center">
+        <div class="btn-group btn-group-toggle col-md-8">
+            <button type="button"
+                (click)="goleadores()"
+                class="btn sharp-borders btn-outline-orange"
+                [ngClass]="{'team-active-link': config.goles}">
+                <i class="fa fa-futbol-o"></i>
+                <span class="hide-tablet">&nbsp;Golejadors</span>
+            </button>
+            <button type="button"
+                (click)="asistentes()"
+                class="btn sharp-borders btn-outline-orange"
+                [ngClass]="{'team-active-link': config.asistencias}">
+                <i class="fa fa-arrow-circle-right"></i>
+                <span class="hide-tablet">&nbsp;Assistents</span>
+            </button>
+            <button type="button"
+                (click)="amonestados()"
+                class="btn sharp-borders btn-outline-orange"
+                [ngClass]="{'team-active-link': config.amonestaciones}">
+                <i class="fa fa-square"></i>
+                <span class="hide-tablet">&nbsp;Amonestats</span>
+            </button>
+            <button type="button"
+                (click)="porteros()"
+                class="btn sharp-borders btn-outline-orange"
+                [ngClass]="{'team-active-link': config.porteros}">
+                <i class="fas fa-mitten"></i>
+                <span class="hide-tablet">&nbsp;Porters</span>
+            </button>
+        </div>
+    </div>
+</div>
+<div *ngIf="!loading"
+    class="animated fadeIn">
+    <div class="row mt-5">
+        <table class="table animated fadeIn slow ml-5 mr-5"
+            *ngFor="let jugador of jugadores | sort : config | filterStats : searchText">
+            <tbody>
+                <tr>
+                    <td class="clean w-10 hide-mobile">
+                        <img class="img-responsive"
+                            src="http://localhost:3000/plantillas/{{jugador.imagen}}"
+                            style="max-width: 40px; max-height: 50px;display: block;" />
+                    </td>
+                    <td class="clean w-25 text-left">{{jugador.apodo}}</td>
+                    <td class="clean w-25 text-left">{{jugador.posicion}}</td>
+                    <td class="clean w-15"
+                        *ngIf="config.goles">
+                        {{jugador.estadisticas.goles}}
+                        <i class="fa fa-futbol-o"></i>
+                    </td>
+                    <td class="clean w-25 hide-tablet"
+                        *ngIf="config.goles">
+                        {{jugador.estadisticas.goles_pp | number : '1.1-1'}}
+                        <i class="fa fa-futbol-o"></i><span class="text-muted"> per partit</span>
+                    </td>
+                    <td class="clean w-15"
+                        *ngIf="config.porteros">
+                        {{jugador.estadisticas.goles_encajados}}
+                        <i class="fa fa-futbol-o red-card"></i>
+                    </td>
+                    <td class="clean w-25 hide-tablet"
+                        *ngIf="config.porteros">
+                        {{jugador.estadisticas.goles_encajados_pp | number : '1.1-1'}}
+                        <i class="fa fa-futbol-o red-card"></i><span class="text-muted"> per partit</span>
+                    </td>
+                    <td class="clean w-15"
+                        *ngIf="config.asistencias">
+                        {{jugador.estadisticas.asistencias}}
+                        <i class="fa fa-arrow-circle-right"></i>
+                    </td>
+                    <td class="clean w-25 hide-tablet"
+                        *ngIf="config.asistencias">
+                        {{jugador.estadisticas.asistencias_pp | number : '1.1-1'}}
+                        <i class="fa fa-arrow-circle-right"></i><span class="text-muted"> per partit</span>
+                    </td>
+                    <td class="clean w-15"
+                        *ngIf="config.amonestaciones">
+                        {{jugador.estadisticas.amarillas}}
+                        <i class="fa fa-square yellow-card"></i>
+                    </td>
+                    <td class="clean w-25"
+                        *ngIf="config.amonestaciones">
+                        {{jugador.estadisticas.rojas}}
+                        <i class="fa fa-square red-card"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

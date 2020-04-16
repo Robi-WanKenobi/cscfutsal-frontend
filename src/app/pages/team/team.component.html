@@ -1,0 +1,37 @@
+<div class="row no-gutters justify-content-center mt-4 animated fadeIn">
+    <div class="btn-group">
+        <button type="button"
+            [routerLink]="[ 'players' ]"
+            routerLinkActive="team-active-link"
+            class="btn btn-outline-orange">
+            <i class="fas fa-users"></i>
+            <span class="hide-tablet">&nbsp;Plantilla</span>
+        </button>
+        <button type="button"
+            [routerLink]="[ 'results' ]"
+            routerLinkActive="team-active-link"
+            class="btn btn-outline-orange">
+            <i class="fas fa-list-ol"></i>
+            <span class="hide-tablet">&nbsp;Classificació i resultats</span>
+        </button>
+        <button type="button"
+            [routerLink]="[ 'stats' ]"
+            routerLinkActive="team-active-link"
+            class="btn btn-outline-orange">
+            <i class="fas fa-table"></i>
+            <span class="hide-tablet">&nbsp;Estadístiques</span>
+        </button>
+        <button type="button"
+            [routerLink]="[ 'calendar' ]"
+            routerLinkActive="team-active-link"
+            class="btn btn-outline-orange">
+            <i class="fas fa-calendar-alt"></i>
+            <span class="hide-tablet">&nbsp;Calendari</span>
+        </button>
+    </div>
+</div>
+<div class="row no-gutters">
+    <div class="col">
+        <router-outlet></router-outlet>
+    </div>
+</div>

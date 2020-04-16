@@ -1,0 +1,73 @@
+<div class="row no-gutters text-center justify-content-center mt-5 animated fadeIn slow">
+    <form (ngSubmit)="save()"
+        autocomplete="on"
+        class="form-mobile"
+        [formGroup]="formTeam">
+        <div class="form-group">
+            <button type="button"
+                routerLink="/admin/teams/"
+                class="btn btn-outline-orange float-left">
+            <i class="fas fa-arrow-left"></i>
+            Tornar
+            </button>
+        </div>
+        <br>
+        <br>
+        <input class="form-control"
+            type="text"
+            placeholder="Nom"
+            formControlName="nombre"
+            [class.is-invalid]="emptyNombre">
+        <br>
+        <input class="form-control"
+            type="text"
+            placeholder="Nom de recerca"
+            formControlName="nombreToSearch"
+            [class.is-invalid]="emptySearch">
+        <br>
+        <input class="form-control"
+            type="number"
+            placeholder="Orden"
+            formControlName="orden"
+            [class.is-invalid]="emptyOrden">
+        <br>
+        <input class="form-control"
+            type="text"
+            placeholder="Lliga"
+            formControlName="liga"
+            [class.is-invalid]="emptyLiga">
+        <br>
+        <input class="form-control"
+            type="text"
+            placeholder="URL de resultats"
+            formControlName="resultadosUrl"
+            [class.is-invalid]="emptyRes">
+        <br>
+        <input class="form-control"
+            type="text"
+            placeholder="URL de classificació"
+            formControlName="clasificacionUrl"
+            [class.is-invalid]="emptyClas">
+        <br>
+        <input class="form-control"
+            type="text"
+            placeholder="URL de calendari"
+            formControlName="calendarioUrl"
+            [class.is-invalid]="emptyCal">
+        <br>
+        <div class="form-group">
+            <button type="button"
+                *ngIf="!isNew"
+                (click)="delete()"
+                class="btn btn-outline-danger float-left">
+            <i class="fas fa-trash"></i>
+            </button>
+            <button type="submit"
+                class="btn btn-outline-orange float-right"
+                [disabled]="formTeam.invalid">
+            Guardar
+            <i class="fas fa-save"></i>
+            </button>
+        </div>
+    </form>
+</div>

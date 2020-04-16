@@ -1,0 +1,59 @@
+<div class="tool-bar animated fadeIn mt-4">
+    <div class="row no-gutters justify-content-center">
+        <input class="form-control sharp-borders w-25"
+            type="number"
+            [(ngModel)]="searchJornada"
+            placeholder="Jornada">
+        <button type="submit"
+            class="btn btn-outline-info mr-1"
+            (click)="search()"
+            [disabled]="!validJornada">
+            <i class="fas fa-search"></i>
+        </button>
+    </div>
+</div>
+<div *ngIf="loading"
+    class="text-center animated fadeIn fast mb-4 mt-4">
+    <i class="fas fa-spinner t-orange fa-spin fa-2x"></i>
+</div>
+<div class="m-4 animated fadeIn slow"
+    *ngIf="searched && !loading">
+    <form #cronicaForm="ngForm"
+        (ngSubmit)="save()">
+        <div class="form-row">
+            <div class="col">
+                <input class="form-control"
+                    type="text"
+                    [(ngModel)]="cronica.local"
+                    placeholder="Local"
+                    #local="ngModel"
+                    name='local'>
+            </div>
+            <div class="col">
+                <input class="form-control"
+                    type="text"
+                    [(ngModel)]="cronica.resultado"
+                    placeholder="Resultat"
+                    #resultado="ngModel"
+                    name='resultado'>
+
+            </div>
+            <div class="col">
+                <input class="form-control"
+                    type="text"
+                    [(ngModel)]="cronica.visitante"
+                    placeholder="Visitant"
+                    #visitante="ngModel"
+                    name='visitante'>
+            </div>
+        </div>
+
+        <div class="mt-2 row no-gutters justify-content-center">
+            <button type="submit"
+                class="btn btn-outline-orange ml-1">
+            Guardar
+            <i class="fas fa-save"></i>
+            </button>
+        </div>
+    </form>
+</div>

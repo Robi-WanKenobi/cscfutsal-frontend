@@ -1,0 +1,22 @@
+<div class="animated fadeIn slow mt-1 mb-4">
+    <h1 class="text-center b-dark t-white fs-l p-2 mb-0">Estadístiques del club</h1>
+    <div class="row">
+        <div class="col-md-6 text-center">
+            <app-table-stats [title]="'Golejadors'"
+                [type]="'gol'"></app-table-stats>
+        </div>
+        <div class="col-md-6 text-center">
+            <app-table-stats [title]="'Assistents'"
+                [type]="'ass'"></app-table-stats>
+        </div>
+
+        <div class="col-md-6 text-center">
+            <app-table-stats [title]="'Amonestats'"
+                [type]="'amo'"></app-table-stats>
+        </div>
+        <div class="col-md-6 text-center">
+            <app-table-stats [title]="'Porters'"
+                [type]="'por'"></app-table-stats>
+        </div>
+    </div>
+</div>

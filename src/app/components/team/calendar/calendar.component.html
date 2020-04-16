@@ -1,0 +1,93 @@
+<h1 class="fs-l mt-4 text-muted text-center t-dark animated fadeIn slow">{{equipo?.nombre}}</h1>
+<hr>
+<div *ngIf="loading"
+    class="text-center animated fadeIn fast mb-4 mt-4">
+    <i class="fas fa-spinner t-orange fa-spin fa-2x"></i>
+</div>
+<div class="tool-bar animated fadeIn">
+    <div class="row no-gutters justify-content-center">
+        <div class="col-md-8">
+            <ng-select [items]="months"
+                bindValue="id"
+                bindLabel="name"
+                appendTo="body"
+                placeholder="Escollir mes"
+                [(ngModel)]="selectedMonth">
+            </ng-select>
+        </div>
+    </div>
+</div>
+<!-- <div *ngIf="!loading"
+    class="animated fadeIn">
+    <div class="row mt-3 mr-5 ml-5">
+        <div class="col-md-6">
+            <h2 *ngIf="calendario_1.length !== 0"
+                class="fs-l text-center t-orange">Primera volta</h2>
+            <div *ngFor="let calendar of calendario_1 | filterCalendar : selectedMonth"
+                class="mb-3 mt-3 animated fadeIn slow">
+                <h3 class="card-title fs-m b-dark t-white p-2">{{calendar.numero}}
+                    <span class="text-muted float-right">{{calendar.fecha}}</span>
+                </h3>
+                <table class="table table-sm">
+                    <tbody>
+                        <tr *ngFor="let partido of calendar.partidos"
+                            [ngClass]="{'t-orange':partido.csc}">
+                            <td class="border-0 text-left fs-xs w-40 align-middle">{{partido.local}}</td>
+                            <td class="border-0 text-center fs-xs w-20 align-middle">
+                                {{partido.res_local}} - {{partido.res_visitante}}
+                            </td>
+                            <td class="border-0 text-right fs-xs w-40 align-middle">{{partido.visitante}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <h2 *ngIf="calendario_2.length !== 0"
+                class="fs-l text-center t-orange">Segona volta</h2>
+            <div *ngFor="let calendar of calendario_2 | filterCalendar : selectedMonth"
+                class="mb-3 mt-3 animated fadeIn slow">
+                <h3 class="card-title fs-m b-dark t-white p-2">{{calendar.numero}}
+                    <span class="text-muted float-right">{{calendar.fecha}}</span>
+                </h3>
+                <table class="table table-sm">
+                    <tbody>
+                        <tr *ngFor="let partido of calendar.partidos"
+                            [ngClass]="{'t-orange':partido.csc}">
+                            <td class="border-0 text-left fs-xs w-40 align-middle">{{partido.local}}</td>
+                            <td class="border-0 text-center fs-xs w-20 align-middle">
+                                {{partido.res_local}} - {{partido.res_visitante}}
+                            </td>
+                            <td class="border-0 text-right fs-xs w-40 align-middle">{{partido.visitante}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div *ngIf="!loading"
+    class="animated fadeIn">
+    <div class="row no-gutters m-3 m-mobile">
+        <div class="card-columns">
+            <div *ngFor="let calendar of calendario | filterCalendar : selectedMonth"
+                class="card border-0 mb-3 mt-3 animated fadeIn slow">
+                <h3 class="card-title fs-m b-dark t-white p-2">{{calendar.numero}}
+                    <span class="text-muted float-right">{{calendar.fecha}}</span>
+                </h3>
+                <table class="table table-sm">
+                    <tbody>
+                        <tr *ngFor="let partido of calendar.partidos"
+                            [ngClass]="{'t-orange':partido.csc}">
+                            <td class="border-0 text-left fs-xs w-40 align-middle">{{partido.local}}</td>
+                            <td class="border-0 text-center fs-xs w-20 align-middle">
+                                {{partido.res_local}} - {{partido.res_visitante}}
+                            </td>
+                            <td class="border-0 text-right fs-xs w-40 align-middle">{{partido.visitante}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

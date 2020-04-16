@@ -1,0 +1,19 @@
+<div class="card inner-player-card border-0 mb-5">
+    <div class="row no-gutters">
+        <div class="col-sm-3">
+            <img src="http://localhost:3000/plantillas/{{jugador.imagen}}"
+                alt="Player image"
+                class="card-img-top">
+        </div>
+        <div class="col-sm-9 pl-2 flex-container align-items-center">
+            <div class="card-body p-0">
+                <p class="text-left fs-m mb-0">
+                    <strong *ngIf="jugador.tipo !== 'Tècnic'">
+                                {{jugador?.dorsal}}.
+                    </strong>{{jugador?.apodo}}
+                </p>
+                <p class="text-left fs-m mb-0 text-muted">{{jugador?.posicion}}</p>
+            </div>
+        </div>
+    </div>
+</div>

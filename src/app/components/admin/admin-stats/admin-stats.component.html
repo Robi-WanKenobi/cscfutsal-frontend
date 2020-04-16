@@ -1,0 +1,89 @@
+<div class="text-center mt-4"
+    *ngIf="loading">
+    <i class="fas fa-spinner t-orange fa-spin fa-2x"></i>
+</div>
+<div class="animated fadeIn slow m-4"
+    *ngFor="let equipo of equiposAux">
+    <div *ngIf="equipo.jugadores.length > 0"
+        class="table-responsive-md">
+        <h1 class="text-center b-dark t-white fs-l p-2 mb-0">{{equipo.nombre}}</h1>
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Partits</th>
+                    <th scope="col">Gols</th>
+                    <th scope="col">Assistències</th>
+                    <th scope="col">Grogues</th>
+                    <th scope="col">Vermelles</th>
+                    <th scope="col">Encaixats</th>
+                    <th scope="col">Estat</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let jugador of equipo.jugadores; let i = index"
+                    (ngModelChange)="saveJugador(jugador)">
+                    <td class="pt-75r">
+                        {{jugador.nombre}}
+                    </td>
+                    <td>
+                        <input type="number"
+                            class="form-control border-0"
+                            [(ngModel)]="jugador.estadisticas.partidos"
+                            (change)="saveJugador(jugador)"
+                            name="partidos"
+                            min="0">
+                    </td>
+                    <td>
+                        <input type="number"
+                            class="form-control border-0"
+                            [(ngModel)]="jugador.estadisticas.goles"
+                            (change)="saveJugador(jugador)"
+                            name="goles"
+                            min="0">
+                    </td>
+                    <td>
+                        <input type="number"
+                            class="form-control border-0"
+                            [(ngModel)]="jugador.estadisticas.asistencias"
+                            (change)="saveJugador(jugador)"
+                            name="asistencias"
+                            min="0">
+                    </td>
+                    <td>
+                        <input type="number"
+                            class="form-control border-0"
+                            [(ngModel)]="jugador.estadisticas.amarillas"
+                            (change)="saveJugador(jugador)"
+                            name="amarillas"
+                            min="0">
+                    </td>
+                    <td>
+                        <input type="number"
+                            class="form-control border-0"
+                            [(ngModel)]="jugador.estadisticas.rojas"
+                            (change)="saveJugador(jugador)"
+                            name="rojas"
+                            min="0">
+                    </td>
+                    <td>
+                        <input type="number"
+                            class="form-control border-0"
+                            [(ngModel)]="jugador.estadisticas.goles_encajados"
+                            (change)="saveJugador(jugador)"
+                            name="encajados"
+                            min="0">
+                    </td>
+                    <td class="pt-75r text-center">
+                        <i *ngIf="jugador.estadisticas.loading"
+                            class="fas fa-spinner t-orange fa-spin"></i>
+                        <i *ngIf="!jugador.estadisticas.loading && !jugador.estadisticas.hasErrors"
+                            class="fas fa-check text-success"></i>
+                        <i *ngIf="!jugador.estadisticas.loading && jugador.estadisticas.hasErrors"
+                            class="fas fa-times text-danger"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

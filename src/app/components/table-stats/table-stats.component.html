@@ -1,0 +1,36 @@
+<h2 class="text-center fs-m p-2 mb-0 t-orange animated fadeIn">
+    {{title}}
+</h2>
+<table class="table table-borderless b-grey shadow animated fadeIn slow">
+    <tbody>
+        <tr *ngFor="let jugador of jugadores; let i=index">
+            <th scope="row"
+                class="text-left w-5">
+                <i class="fas fa-trophy ranking-{{i+1}}"></i>
+            </th>
+            <td class="text-center w-30 text-muted">{{jugador.equipo}}</td>
+            <td class="text-center w-30">{{jugador.apodo}}</td>
+            <td class="text-right w-35"
+                *ngIf="type === 'gol'">
+                {{jugador.estadisticas.goles}}
+                <i class="fa fa-futbol-o"></i>
+            </td>
+            <td class="text-right w-35"
+                *ngIf="type === 'ass'">
+                {{jugador.estadisticas.asistencias}}
+                <i class="fa fa-arrow-circle-right"></i>
+            </td>
+            <td class="text-right w-35"
+                *ngIf="type === 'amo'">
+                {{jugador.estadisticas.amarillas}}
+                <i class="fa fa-square yellow-card"></i> {{jugador.estadisticas.rojas}}
+                <i class="fa fa-square red-card"></i>
+            </td>
+            <td class="text-right w-35"
+                *ngIf="type === 'por'">
+                {{jugador.estadisticas.goles_encajados_pp | number : '1.1-1'}}
+                <i class="fa fa-futbol-o red-card"></i>/p
+            </td>
+        </tr>
+    </tbody>
+</table>

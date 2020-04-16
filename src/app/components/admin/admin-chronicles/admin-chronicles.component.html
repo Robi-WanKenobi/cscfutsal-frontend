@@ -1,0 +1,60 @@
+<div class="text-center mt-4"
+    *ngIf="loading">
+    <i class="fas fa-spinner t-orange fa-spin fa-2x"></i>
+</div>
+<div class="animated fadeIn slow m-4"
+    *ngFor="let equipo of equipos; let i = index">
+    <div>
+        <h1 class="text-center b-dark t-white fs-l p-2 mb-0">{{equipo.nombre}}
+            <a class="float-right admin-anchor"
+                routerLink="/admin/team/chronicle/{{equipo._id}}/new">
+                <i class="fas fa-plus-circle"></i>
+            </a>
+        </h1>
+    </div>
+    <div *ngIf="equipo.cronicas.length > 0">
+        <table class="table table-sm fs-s">
+            <thead>
+                <tr>
+                    <th scope="col">Local</th>
+                    <th scope="col">Resultat</th>
+                    <th scope="col">Visitant</th>
+                    <th scope="col">Jornada</th>
+                    <th scope="col">Data de creació</th>
+                    <th scope="col">Accions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let cronica of equipo.cronicas | sort: config; let j = index">
+                    <td>
+                        {{cronica.local}}
+                    </td>
+                    <td>
+                        {{cronica.resultado}}
+                    </td>
+                    <td>
+                        {{cronica.visitante}}
+                    </td>
+                    <td>
+                        {{cronica.jornada}}
+                    </td>
+                    <td>
+                        {{cronica.fecha_creacion | date: 'dd/MM/yy'}}
+                    </td>
+                    <td>
+                        <button type="button"
+                            (click)="toEditChronicle(equipo._id, cronica._id)"
+                            class="btn btn-outline-info pb-0 pt-0 pl-1 pr-1 mr-1">
+                            <i class="fas fa-edit"></i>
+                        </button>
+                        <button type="button"
+                            (click)="delete(equipo._id, cronica._id, i, j)"
+                            class="btn btn-outline-danger pb-0 pt-0 pl-1 pr-1 ml-1">
+                        <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,1 +1,369 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@ng-select/ng-select/themes/default.theme.css";
+body {
+    background-color: white !important;
+    font-family: 'Muli', sans-serif;
+    margin-bottom: 100px;
+}
+
+.main-container {
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    margin-bottom: 50px;
+}
+
+.fs-xxs {
+    font-size: 9px;
+}
+
+.fs-xs {
+    font-size: 12px;
+}
+
+.fs-s {
+    font-size: 15px;
+}
+
+.fs-m {
+    font-size: 18px;
+}
+
+.fs-l {
+    font-size: 22px;
+}
+
+.fs-xxl {
+    font-size: 40px;
+}
+
+.b-orange {
+    background-color: #FF9300;
+}
+
+.t-orange {
+    color: #FF9300;
+}
+
+.b-dark {
+    background-color: #333333;
+}
+
+.t-dark {
+    color: #333333;
+}
+
+.b-grey {
+    background-color: #f5f5f5;
+}
+
+.b-white {
+    background-color: #FCFCFC;
+}
+
+.t-white {
+    color: #FCFCFC !important;
+}
+
+.height-85 {
+    height: 85px;
+}
+
+.height-150 {
+    height: 150px;
+}
+
+.w-5 {
+    width: 5% !important;
+}
+
+.w-10 {
+    width: 10% !important;
+}
+
+.w-15 {
+    width: 15% !important;
+}
+
+.w-20 {
+    width: 20% !important;
+}
+
+.w-30 {
+    width: 30% !important;
+}
+
+.w-35 {
+    width: 35% !important;
+}
+
+.w-40 {
+    width: 40% !important;
+}
+
+.sharp-borders {
+    border-radius: 0;
+}
+
+.yellow-card {
+    color: yellow;
+}
+
+.red-card {
+    color: red;
+}
+
+.ranking-1 {
+    color: gold;
+}
+
+.ranking-2 {
+    color: silver;
+}
+
+.ranking-3 {
+    color: #CD7F32;
+}
+
+.ranking-4 {
+    color: #763c28;
+}
+
+.ranking-5 {
+    color: #B5A642;
+}
+
+.shadow {
+    -webkit-box-shadow: 5px 5px 2px 2px rgba(222, 222, 222, 1);
+    -moz-box-shadow: 5px 5px 2px 2px rgba(222, 222, 222, 1);
+    box-shadow: 5px 5px 2px 2px rgba(222, 222, 222, 1);
+}
+
+.border-b-orange {
+    border-bottom: 3px solid #FF9300;
+}
+
+.border-orange {
+    border: 3px solid #FF9300;
+}
+
+.border-b-dark {
+    border-bottom: 3px solid #333333;
+}
+
+.border-l-dark {
+    border-left: 3px solid #333333;
+}
+
+.border-r-dark {
+    border-right: 3px solid #333333;
+}
+
+.border-t-dark {
+    border-top: 3px solid #333333;
+}
+
+.btn-outline-orange {
+    color: #FF9300;
+    border-color: #FF9300;
+}
+
+.btn-outline-orange:hover,
+.btn-outline-orange.active-link,
+.team-active-link {
+    color: #333333;
+    border-color: #FF9300;
+    background-color: #FF9300;
+}
+
+.btn-outline-orange:focus {
+    outline: 0;
+    box-shadow: none;
+    color: #333333;
+}
+
+.search-input {
+    border-bottom: none;
+}
+
+.search-input:focus {
+    outline: 0;
+    box-shadow: none;
+    border-top-color: #FF9300;
+    border-left-color: #FF9300;
+    border-right-color: #FF9300;
+}
+
+.flex-container {
+    display: flex;
+}
+
+.flex-container-column {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.btn.login-alert {
+    margin: 3px;
+}
+
+.card-columns {
+    column-count: 2;
+}
+
+.player-card {
+    width: 20% !important;
+}
+
+.kit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.kit img {
+    width: 50%;
+}
+
+.admin-anchor {
+    color: white;
+}
+
+.admin-anchor:hover i {
+    cursor: pointer;
+    color: #FF9300
+}
+
+.form-mobile {
+    width: 50% !important;
+}
+
+.pt-75r {
+    padding-top: .75rem !important;
+}
+
+.banner-card-line {
+    width: 50%;
+    border-top: 1.5px solid orange;
+    align-self: center;
+}
+
+
+/* Team cards */
+
+.team-card:hover.border-r {
+    cursor: pointer;
+    transform: scale(0.98);
+    transition-duration: 1000ms;
+    border-left: 3px solid #333333;
+}
+
+.team-card:hover.border-l {
+    cursor: pointer;
+    transform: scale(0.95);
+    transition-duration: 1000ms;
+    border-right: 3px solid #333333;
+}
+
+.team-card-gradient-left {
+    background: rgb(245, 245, 245);
+    background: -moz-linear-gradient(45deg, rgba(245, 245, 245, 1) 0%, rgba(245, 245, 245, 1) 75%, rgba(222, 131, 60, 1) 85%, rgba(164, 38, 57, 1) 90%, rgba(52, 50, 128, 1) 95%);
+    background: -webkit-linear-gradient(45deg, rgba(245, 245, 245, 1) 0%, rgba(245, 245, 245, 1) 75%, rgba(222, 131, 60, 1) 85%, rgba(164, 38, 57, 1) 90%, rgba(52, 50, 128, 1) 95%);
+    background: linear-gradient(45deg, rgba(245, 245, 245, 1) 0%, rgba(245, 245, 245, 1) 75%, rgba(222, 131, 60, 1) 85%, rgba(164, 38, 57, 1) 90%, rgba(52, 50, 128, 1) 95%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#f5f5f5", endColorstr="#343280", GradientType=1);
+}
+
+.team-card-gradient-right {
+    background: rgb(245, 245, 245);
+    background: -moz-linear-gradient(-45deg, rgba(245, 245, 245, 1) 0%, rgba(245, 245, 245, 1) 75%, rgba(222, 131, 60, 1) 85%, rgba(164, 38, 57, 1) 90%, rgba(52, 50, 128, 1) 95%);
+    background: -webkit-linear-gradient(-45deg, rgba(245, 245, 245, 1) 0%, rgba(245, 245, 245, 1) 75%, rgba(222, 131, 60, 1) 85%, rgba(164, 38, 57, 1) 90%, rgba(52, 50, 128, 1) 95%);
+    background: linear-gradient(-45deg, rgba(245, 245, 245, 1) 0%, rgba(245, 245, 245, 1) 75%, rgba(222, 131, 60, 1) 85%, rgba(164, 38, 57, 1) 90%, rgba(52, 50, 128, 1) 95%);
+    filter: progid: DXImageTransform.Microsoft.gradient(startColorstr="#f5f5f5", endColorstr="#343280", GradientType=1);
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+td.clean {
+    vertical-align: middle;
+    border-top: none;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+td.clean img {
+    display: unset !important;
+}
+
+
+/* Navbar customizations */
+
+.active-link {
+    color: #FF9300 !important;
+    border-bottom: 3px solid #FF9300 !important;
+}
+
+.nav-link {
+    border-bottom: 3px solid #333333;
+}
+
+.nav-link:hover {
+    color: #FF9300 !important;
+    border-bottom: 3px solid #FF9300;
+    cursor: pointer;
+}
+
+.navbar-nav {
+    width: 100%;
+    justify-content: space-around !important;
+}
+
+.icon-toggler {
+    display: none;
+}
+
+.hide-on-collapse {
+    display: block;
+}
+
+.show-instead-of-editor {
+    display: none;
+}
+
+.footer.hide-on-collapse {
+    display: flex;
+}
+
+.show-on-collapse {
+    display: none;
+}
+
+.orange-hover:hover {
+    cursor: pointer;
+    color: #FF9300;
+}
+
+.red-hover:hover {
+    cursor: pointer;
+    color: red;
+}
+
+.yellow-hover:hover {
+    cursor: pointer;
+    color: yellow;
+}
+
+
+/* FontAwesome customizations */
+
+.no-line-height {
+    line-height: unset;
+}

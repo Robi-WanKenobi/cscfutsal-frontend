@@ -1,0 +1,113 @@
+<img class="img-responsive"
+    src="assets/images/header_csc-2019-2020.png"
+    border="0"
+    style="margin: 0 auto; width: 100%"
+    alt="Header image">
+
+<nav class="navbar navbar-expand-sm sticky-top navbar-light b-dark p-0 fs-m">
+    <button class="navbar-toggle border-0 b-dark icon-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation">
+        <i class="fas fa-chevron-down fa-2x t-orange"></i>
+        </button>
+    <div class="collapse navbar-collapse"
+        id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item text-center">
+                <a class="nav-link t-white hide-on-collapse"
+                    [routerLink]="[ '/home' ]"
+                    routerLinkActive="active-link">Inici</a>
+                <a class="nav-link t-white show-on-collapse"
+                    [routerLink]="[ '/home' ]"
+                    routerLinkActive="active-link"
+                    data-toggle="collapse"
+                    data-target="#navbarNav">
+                Inici
+                </a>
+            </li>
+            <li class="nav-item text-center">
+                <a class="nav-link t-white hide-on-collapse"
+                    [routerLink]="[ '/club' ]"
+                    routerLinkActive="active-link">Club</a>
+                <a class="nav-link t-white show-on-collapse"
+                    [routerLink]="[ '/club' ]"
+                    routerLinkActive="active-link"
+                    data-toggle="collapse"
+                    data-target="#navbarNav">Club</a>
+            </li>
+            <li class="nav-item text-center">
+                <a class="nav-link t-white hide-on-collapse"
+                    [routerLink]="[ '/teams' ]"
+                    routerLinkActive="active-link">Equips</a>
+                <a class="nav-link t-white show-on-collapse"
+                    [routerLink]="[ '/teams' ]"
+                    routerLinkActive="active-link"
+                    data-toggle="collapse"
+                    data-target="#navbarNav">Equips</a>
+            </li>
+            <li class="nav-item text-center">
+                <a class="nav-link t-white hide-on-collapse">Patrocinadors</a>
+                <a class="nav-link t-white show-on-collapse"
+                    data-toggle="collapse"
+                    data-target="#navbarNav">Patrocinadors</a>
+            </li>
+            <li class="nav-item text-center">
+                <a class="nav-link t-white hide-on-collapse"
+                    [swal]="shopSwal">Botiga</a>
+                <a class="nav-link t-white show-on-collapse"
+                    [swal]="shopSwal"
+                    data-toggle="collapse"
+                    data-target="#navbarNav">Botiga</a>
+            </li>
+            <li class="nav-item text-center">
+                <a class="nav-link t-white hide-on-collapse"
+                    [routerLink]="[ '/contact' ]"
+                    routerLinkActive="active-link">Contacte</a>
+                <a class="nav-link t-white show-on-collapse"
+                    data-toggle="collapse"
+                    data-target="#navbarNav"
+                    [routerLink]="[ '/contact' ]"
+                    routerLinkActive="active-link">Contacte</a>
+            </li>
+            <li class="nav-item text-center">
+                <div class="flex-container hide-on-collapse">
+                    <a target="_blank"
+                        href="https://twitter.com/CscFutsal"
+                        class="fa fa-twitter nav-link t-white no-line-height icon-navbar"></a>
+                    <a target="_blank"
+                        href="https://www.instagram.com/cscfutsal/"
+                        class="fa fa-instagram nav-link t-white no-line-height icon-navbar"></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+
+<swal #shopSwal
+    [swalOptions]="{
+        icon: 'info',
+        allowOutsideClick: true,
+        showConfirmButton: false,
+        showCancelButton: false
+    }">
+    <div *swalPortal>
+        <p class="fs-m t-dark">Aquesta clau és necessària per accedir a la botiga</p>
+        <p class="fs-l font-weight-bold"
+            #copyText>P15CSC</p>
+        <button type="button"
+            ngxClipboard
+            [cbContent]="'P15CSC'"
+            title="Popover title"
+            data-toggle="popover"
+            data-content="Copiat"
+            class="btn btn-outline-orange"
+            (click)="toShop()">
+            Copiar i anar
+        </button>
+    </div>
+</swal>

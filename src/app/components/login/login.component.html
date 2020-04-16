@@ -1,0 +1,70 @@
+<button type="button"
+    *ngIf="!auth.isLogged"
+    [swal]="loginSwal"
+    class="btn btn-outline-orange btn-sm m-1">
+<i class="fas fa-sign-in-alt"></i>
+</button>
+
+<button type="button"
+    *ngIf="auth.isLogged"
+    (click)="doLogout()"
+    class="btn btn-outline-danger btn-sm m-1">
+<i class="fas fa-sign-out-alt"></i>
+</button>
+
+<button type="button"
+    *ngIf="auth.isLogged"
+    (click)="toAdminPanel()"
+    class="btn btn-outline-orange btn-sm m-1">
+    <i class="fas fa-th"></i>
+</button>
+
+
+<swal #loginSwal
+    [swalOptions]="{
+        title: 'Inici de sessió',
+        allowOutsideClick: false,
+        showConfirmButton: false,
+        showCancelButton: false
+    }">
+    <div *swalPortal>
+        <form (ngSubmit)="doLogin()"
+            autocomplete="off"
+            [formGroup]="formLogin">
+            <input class="form-control mt-2"
+                type="text"
+                placeholder="Usuari"
+                formControlName="usuario"
+                [class.is-invalid]="emptyUser">
+            <small *ngIf="emptyUser"
+                class="text-left text-danger">Introduïu un usuari</small>
+            <br>
+            <input class="form-control mt-2"
+                type="password"
+                placeholder="Contrasenya"
+                formControlName="password"
+                [class.is-invalid]="emptyPassword">
+            <small *ngIf="emptyPassword"
+                class="text-left text-danger">Introduïu una contrasenya</small>
+            <br>
+            <div class="form-group row mb-0 mt-1">
+                <div class="input-group col justify-content-center">
+                    <button type="button"
+                        (click)="loginSwal.dismiss()"
+                        class="btn btn-danger login-alert">
+                    Tancar
+                    </button>
+                    <button type="submit"
+                        class="btn btn-outline-orange login-alert"
+                        [disabled]="loading">
+                    Accedir
+                </button>
+                </div>
+            </div>
+        </form>
+        <div *ngIf="loading"
+            class="text-center animated fadeIn fast mb-3 mt-3">
+            <i class="fas fa-spinner t-orange fa-spin fa-2x"></i>
+        </div>
+    </div>
+</swal>

@@ -1,0 +1,35 @@
+<div class="animated fadeIn slow mb-2">
+    <h1 class="text-center b-dark t-white fs-l p-2 mb-0">{{type}} partits</h1>
+    <!-- <h2 *ngIf="!loading"
+        class="text-center fs-m p-2 mb-0 t-orange animated fadeIn">
+        Jornada {{jornada}}
+    </h2> -->
+    <div *ngIf="loading"
+        class="text-center animated fadeIn fast mb-4 mt-4">
+        <i class="fas fa-spinner t-orange fa-spin fa-2x"></i>
+    </div>
+</div>
+
+<div *ngIf="!loading"
+    class="animated fadeIn mb-4">
+    <div class="mb-4 b-grey shadow"
+        *ngFor="let partido of partidos">
+        <div class="row border-b-dark mr-0 ml-0 pb-0 pr-2 pl-2 pt-2">
+            <div class="col-md-2 pl-0 pr-0 m-auto">
+                <h2 class="fs-s text-left t-orange">
+                    {{partido.categoria}}
+                </h2>
+            </div>
+            <div class="col-md-10 pr-0 pl-0 m-auto">
+                <h2 class="fs-xs text-muted text-right">
+                    {{partido.lugar}} el {{partido.fecha}}
+                </h2>
+            </div>
+        </div>
+        <div class="row fs-xs align-middle p-4 height-85">
+            <div class="col text-left m-auto p-0">{{partido.local}}</div>
+            <div class="col text-center m-auto">{{partido.resultado}}</div>
+            <div class="col text-right m-auto p-0">{{partido.visitante}}</div>
+        </div>
+    </div>
+</div>

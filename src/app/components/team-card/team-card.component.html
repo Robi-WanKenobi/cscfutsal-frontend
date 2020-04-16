@@ -1,0 +1,36 @@
+<div class="row m-0 mt-4 animated fast"
+    [ngClass]="{'justify-content-start slideInLeft': index % 2, 'slideInRight justify-content-end': !(index % 2)}">
+    <div class="team-card w-75 shadow"
+        (click)="toTeam(equipo._id)"
+        [ngClass]="{'border-r': index % 2, 'border-l': !(index%2)}">
+        <h1 class="fs-l b-dark t-white font-weight-bold mb-0 p-2 pl-4"
+            [ngClass]="{'text-right pr-4': !(index%2)}">{{equipo.nombre}}</h1>
+        <div class="p-4 t-dark border-b-dark border-t-dark team-inner"
+            [ngClass]="{'border-r-dark team-card-gradient-left': index % 2, 'border-l-dark team-card-gradient-right': !(index%2)}">
+            <div class="row"
+                *ngIf="index%2">
+                <div class="col text-left p-3">
+                    <h2 class="fs-m text-uppercase">{{equipo.liga}}</h2>
+                </div>
+                <div class="col text-left m-auto">
+                    <div>
+                        <span class="fs-xxl">{{equipo.jugadores.length}} </span>
+                        <span class="t-orange fa fa-users fa-3x"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row"
+                *ngIf="!(index%2)">
+                <div class="col text-right m-auto">
+                    <div>
+                        <span class="fs-xxl">{{equipo.jugadores.length}} </span>
+                        <span class="t-orange fa fa-users fa-3x"></span>
+                    </div>
+                </div>
+                <div class="col text-right p-3">
+                    <h2 class="fs-m text-uppercase">{{equipo.liga}}</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

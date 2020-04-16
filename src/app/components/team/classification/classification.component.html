@@ -1,0 +1,89 @@
+<h1 class="fs-l mt-4 text-muted text-center t-dark animated fadeIn slow">{{equipo?.nombre}}</h1>
+<hr>
+<div class="animated slideInUp fast">
+    <h1 *ngIf="jornada"
+        class="fs-l text-center t-orange">
+        <button type="button"
+            (click)="down()"
+            class="btn btn-outline-orange btn-sm mr-5">
+            <i class="fas fa-chevron-left"></i>
+        </button>&nbsp;Jornada {{jornada}}
+        <button type="button"
+            (click)="up()"
+            class="btn btn-outline-orange btn-sm ml-5">
+            <i class="fas fa-chevron-right"></i>
+            </button>
+    </h1>
+    <div class="text-center">
+        <button *ngIf="current !== jornada"
+            type="button"
+            (click)="toCurrent()"
+            class="btn btn-outline-orange btn-sm animated fadeIn slow">
+            Anar a jornada actual
+    </button>
+    </div>
+    <div *ngIf="loading"
+        class="text-center animated fadeIn fast mb-4 mt-4">
+        <i class="fas fa-spinner t-orange fa-spin fa-2x"></i>
+    </div>
+    <div *ngIf="!loading"
+        class="m-5 animated fadeIn slow m-mobile">
+        <table class="table table-sm">
+            <thead>
+                <tr>
+                    <th scope="col text-left">Local</th>
+                    <th scope="col"> </th>
+                    <th scope="col"
+                        class="
+                        text-right">Visitant</th>
+                </tr>
+            </thead>
+            <tbody class="device-fs">
+                <tr *ngFor="let result of results"
+                    [ngClass]="{'t-orange': result.csc}">
+                    <td class="text-left">{{result.local}}</td>
+                    <td class="text-center">{{result.resultado}}</td>
+                    <td class="text-right">{{result.visitante}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="!loading"
+        class="m-5 animated fadeIn slow m-mobile">
+        <table class="table device-fs">
+            <thead>
+                <tr>
+                    <th scope="col">Posició</th>
+                    <th scope="col">Equip</th>
+                    <th scope="col">Punts</th>
+                    <th scope="col"
+                        class="hide-between">Partidos</th>
+                    <th scope="col"
+                        class="hide-between">P<span class="text-success">G</span></th>
+                    <th scope="col"
+                        class="hide-between">P<span class="text-warning">E</span></th>
+                    <th scope="col"
+                        class="hide-between">P<span class="text-danger">P</span></th>
+                    <th scope="col"
+                        class="hide-between">G<span class="text-success">F</span></th>
+                    <th scope="col"
+                        class="hide-between">G<span class="text-danger">C</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let ranking of classification"
+                    [ngClass]="{'t-orange': ranking.csc}">
+                    <th scope="row">{{ranking.posicion}}</th>
+                    <td>{{ranking.nombre}}</td>
+                    <td>{{ranking.puntos}}</td>
+                    <td class="hide-between">{{ranking.jugados}}</td>
+                    <td class="hide-between">{{ranking.partidos.ganados}}</td>
+                    <td class="hide-between">{{ranking.partidos.empatados}}</td>
+                    <td class="hide-between">{{ranking.partidos.perdidos}}</td>
+                    <td class="hide-between">{{ranking.goles.favor}}</td>
+                    <td class="hide-between">{{ranking.goles.contra}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
