@@ -6,7 +6,7 @@ WORKDIR /CSCFUTSAL-FRONTEND
 COPY package.json /CSCFUTSAL-FRONTEND
 RUN cd /CSCFUTSAL-FRONTEND
 
-RUN npm install -g @angular/cli
+RUN npm install -g @angular/cli@9.0.7
 
 # If you are building your code for production
 RUN npm install --production
