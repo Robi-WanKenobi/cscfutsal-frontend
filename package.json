@@ -11,6 +11,7 @@
     },
     "private": true,
     "dependencies": {
+        "@angular-devkit/build-angular": "^0.900.7",
         "@angular/animations": "~9.1.2",
         "@angular/common": "~9.1.2",
         "@angular/compiler": "~9.1.2",
@@ -28,6 +29,7 @@
         "rxjs": "~6.5.4",
         "sweetalert2": "^9.10.12",
         "tslib": "^1.10.0",
+        "typescript": "~3.7.5",
         "zone.js": "~0.10.2"
     },
     "devDependencies": {
