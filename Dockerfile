@@ -11,7 +11,7 @@ RUN cd /CSCFUTSAL-FRONTEND
 RUN npm install
 
 # Bundle app source
-COPY . /CSCFUTSAL-FRONTEND
+COPY ./cscfutsal-frontend /CSCFUTSAL-FRONTEND
 RUN ng build --prod
 
 EXPOSE 80
