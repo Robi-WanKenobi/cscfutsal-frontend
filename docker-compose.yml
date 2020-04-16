@@ -1,0 +1,7 @@
+version: '2'
+services:
+  front:
+    container_name: cscfutsal-frontend
+    build: .
+    ports:
+      - "80:80"
