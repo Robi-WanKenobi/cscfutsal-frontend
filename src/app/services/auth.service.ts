@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
 
   token = localStorage.getItem('token');
-  baseURL = 'http://localhost:3000'
+  baseURL = 'http://cscfutsal.com:3000'
   admin = `${this.baseURL}/admin/`;
   isLogged: boolean;
 

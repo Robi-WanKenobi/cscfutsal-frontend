@@ -14,7 +14,7 @@ import { CalendarioModel } from '../models/calendario.model';
 export class BackendService {
 
   token = localStorage.getItem('token');
-  baseURL = 'http://localhost:3000'
+  baseURL = 'http://cscfutsal.com:3000'
   admin = `${this.baseURL}/admin/`;
   equipo = `${this.baseURL}/equipo/`;
   jugador = `${this.baseURL}/jugador/`;
