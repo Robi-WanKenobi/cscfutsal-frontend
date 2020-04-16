@@ -1,4 +1,4 @@
-FROM node:10 AS builder
+FROM node:11.6.0-alpine AS builder
 
 # Create app directory
 COPY . ./CSCFUTSAL-FRONTEND
