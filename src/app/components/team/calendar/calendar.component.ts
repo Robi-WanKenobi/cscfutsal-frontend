@@ -15,14 +15,14 @@ export class CalendarComponent implements OnInit {
   equipo: EquipoModel;
   calendario: CalendarioModel[]=[];
   months = [
+    {id: '10', name: 'Octubre'},
+    {id: '11', name: 'Novembre'},
+    {id: '12', name: 'Desembre'},
     {id: '1', name: 'Gener'},
     {id: '2', name: 'Febrer'},
     {id: '3', name: 'Març'},
     {id: '4', name: 'Abril'},
-    {id: '5', name: 'Maig'},
-    {id: '10', name: 'Octubre'},
-    {id: '11', name: 'Novembre'},
-    {id: '12', name: 'Desembre'},
+    {id: '5', name: 'Maig'}
   ];
   selectedMonth: string;
   loading = true;
