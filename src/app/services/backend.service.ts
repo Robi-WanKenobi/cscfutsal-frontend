@@ -13,7 +13,7 @@ import { CalendarioModel } from '../models/calendario.model';
 })
 export class BackendService {
 
-  token = localStorage.getItem('token');
+  token;
   baseURL = 'http://cscfutsal.com:3000'
   admin = `${this.baseURL}/admin/`;
   equipo = `${this.baseURL}/equipo/`;
@@ -21,6 +21,10 @@ export class BackendService {
   cronica = `${this.baseURL}/cronica/`;
 
   constructor(private http: HttpClient) {
+    this.getToken();
+  }
+
+  getToken() {
     this.token = localStorage.getItem('token');
   }
 
@@ -43,16 +47,19 @@ export class BackendService {
   }
 
   saveEquipo(equipo:EquipoModel) {
+    this.getToken();
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.token });
     return this.http.post(this.equipo, equipo, {headers});
   }
 
   deleteEquipo(id:string) {
+    this.getToken();
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.token });
     return this.http.delete(`${this.equipo}${id}`, {headers});
   }
 
   updateEquipo(id:string, equipo:EquipoModel) {
+    this.getToken();
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.token });
     return this.http.put(`${this.equipo}${id}`, equipo, {headers});
   }
@@ -83,21 +90,25 @@ export class BackendService {
   }
 
   addJugadorToEquipo(idEquipo:string, idJugador:string){
+    this.getToken();
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.token });
     return this.http.post(`${this.equipo}${idEquipo}/add-jugador/${idJugador}`, null, {headers});
   }
 
   removeJugadorFromEquipo(idEquipo:string, idJugador:string){
+    this.getToken();
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.token });
     return this.http.post(`${this.equipo}${idEquipo}/remove-jugador/${idJugador}`, null, {headers});
   }
 
   addCronicaToEquipo(idEquipo:string, idCronica:string){
+    this.getToken();
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.token });
     return this.http.post(`${this.equipo}${idEquipo}/add-cronica/${idCronica}`, null, {headers});
   }
 
   removeCronicaFromEquipo(idEquipo:string, idCronica:string){
+    this.getToken();
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.token });
     return this.http.post(`${this.equipo}${idEquipo}/remove-cronica/${idCronica}`, null, {headers});
   }
@@ -147,11 +158,13 @@ export class BackendService {
   }
   
   saveJugador(jugador:JugadorModel) {
+    this.getToken();
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.token });
     return this.http.post(this.jugador, jugador, {headers});
   }
 
   updateJugador(id:string, jugador:JugadorModel) {
+    this.getToken();
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.token });
     return this.http.put(`${this.jugador}${id}`, jugador, {headers})
     .pipe(
@@ -165,6 +178,7 @@ export class BackendService {
   }
 
   deleteJugador(idJugador:string, idEquipo:string) {
+    this.getToken();
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.token });
     return this.http.delete(`${this.jugador}${idJugador}/${idEquipo}`, {headers});
   }
@@ -201,6 +215,7 @@ export class BackendService {
   // CRONICAS
 
   saveCronica(cronica: CronicaModel) {
+    this.getToken();
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.token });
     return this.http.post(this.cronica, cronica, {headers})
     .pipe(
@@ -209,6 +224,7 @@ export class BackendService {
   }
 
   getCronica(id:string) {
+    this.getToken();
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.token });
     return this.http.get(`${this.cronica}${id}`, {headers})
     .pipe(
@@ -217,52 +233,62 @@ export class BackendService {
   }
 
   deleteCronica(idCronica:string, idEquipo:string) {
+    this.getToken();
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.token });
     return this.http.delete(`${this.cronica}${idCronica}/${idEquipo}`, {headers});
   }
 
   updateCronica(id:string, cronica: CronicaModel) {
+    this.getToken();
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.token });
     return this.http.put(`${this.cronica}${id}`, cronica, {headers});
   }
 
 
   addToGols(id:string, jugador:InnerPlayerChronicle) {
+    this.getToken();
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.token });
     return this.http.post(`${this.cronica}${id}/goleadores`, jugador, {headers});
   }
 
   addToAsis(id:string, jugador:InnerPlayerChronicle) {
+    this.getToken();
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.token });
     return this.http.post(`${this.cronica}${id}/asistentes`, jugador, {headers});
   }
 
   addToAmarillas(id:string, jugador:InnerPlayerChronicle) {
+    this.getToken();
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.token });
     return this.http.post(`${this.cronica}${id}/amarillas`, jugador, {headers});
   }
 
   addToRojas(id:string, jugador:InnerPlayerChronicle) {
+    this.getToken();
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.token });
     return this.http.post(`${this.cronica}${id}/rojas`, jugador, {headers});
   }
 
   delFromGols(id:string, idJugador:string) {
+    this.getToken();
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.token });
     return this.http.put(`${this.cronica}${id}/goleadores/${idJugador}`, null, {headers});
   }
 
   delFromAsis(id:string, idJugador:string) {
+    this.getToken();
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.token });
     return this.http.put(`${this.cronica}${id}/asistentes/${idJugador}`, null, {headers});
   }
 
   delFromAmarillas(id:string, idJugador:string) {
+    this.getToken();
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.token });
     return this.http.put(`${this.cronica}${id}/amarillas/${idJugador}`, null, {headers});
   }
 
   delFromRojas(id:string, idJugador:string) {
+    this.getToken();
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': this.token });
     return this.http.put(`${this.cronica}${id}/rojas/${idJugador}`, null, {headers});
   }

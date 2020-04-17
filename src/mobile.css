@@ -1,3 +1,39 @@
+@media only screen and (min-width: 1400px) {
+    .fs-xxs {
+        font-size: 12px;
+    }
+    .fs-xs {
+        font-size: 15px;
+    }
+    .fs-s {
+        font-size: 19px;
+    }
+    .fs-m {
+        font-size: 21px;
+    }
+    .fs-l {
+        font-size: 25px;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .fs-xxs {
+        font-size: 11px;
+    }
+    .fs-xs {
+        font-size: 14px;
+    }
+    .fs-s {
+        font-size: 18px;
+    }
+    .fs-m {
+        font-size: 20px;
+    }
+    .fs-l {
+        font-size: 25px;
+    }
+}
+
 @media only screen and (max-width: 999px) {
     .player-card {
         width: 25% !important;

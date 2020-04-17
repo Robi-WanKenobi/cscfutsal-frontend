@@ -6,12 +6,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService {
 
-  token = localStorage.getItem('token');
+  token: string;
   baseURL = 'http://cscfutsal.com:3000'
   admin = `${this.baseURL}/admin/`;
   isLogged: boolean;
 
   constructor(private http: HttpClient) {
+    this.token = localStorage.getItem('token');
     if (this.token) {
       this.isLogged = true;
     }
