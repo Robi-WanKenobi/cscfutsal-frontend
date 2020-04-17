@@ -17,55 +17,6 @@
         </div>
     </div>
 </div>
-<!-- <div *ngIf="!loading"
-    class="animated fadeIn">
-    <div class="row mt-3 mr-5 ml-5">
-        <div class="col-md-6">
-            <h2 *ngIf="calendario_1.length !== 0"
-                class="fs-l text-center t-orange">Primera volta</h2>
-            <div *ngFor="let calendar of calendario_1 | filterCalendar : selectedMonth"
-                class="mb-3 mt-3 animated fadeIn slow">
-                <h3 class="card-title fs-m b-dark t-white p-2">{{calendar.numero}}
-                    <span class="text-muted float-right">{{calendar.fecha}}</span>
-                </h3>
-                <table class="table table-sm">
-                    <tbody>
-                        <tr *ngFor="let partido of calendar.partidos"
-                            [ngClass]="{'t-orange':partido.csc}">
-                            <td class="border-0 text-left fs-xs w-40 align-middle">{{partido.local}}</td>
-                            <td class="border-0 text-center fs-xs w-20 align-middle">
-                                {{partido.res_local}} - {{partido.res_visitante}}
-                            </td>
-                            <td class="border-0 text-right fs-xs w-40 align-middle">{{partido.visitante}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <h2 *ngIf="calendario_2.length !== 0"
-                class="fs-l text-center t-orange">Segona volta</h2>
-            <div *ngFor="let calendar of calendario_2 | filterCalendar : selectedMonth"
-                class="mb-3 mt-3 animated fadeIn slow">
-                <h3 class="card-title fs-m b-dark t-white p-2">{{calendar.numero}}
-                    <span class="text-muted float-right">{{calendar.fecha}}</span>
-                </h3>
-                <table class="table table-sm">
-                    <tbody>
-                        <tr *ngFor="let partido of calendar.partidos"
-                            [ngClass]="{'t-orange':partido.csc}">
-                            <td class="border-0 text-left fs-xs w-40 align-middle">{{partido.local}}</td>
-                            <td class="border-0 text-center fs-xs w-20 align-middle">
-                                {{partido.res_local}} - {{partido.res_visitante}}
-                            </td>
-                            <td class="border-0 text-right fs-xs w-40 align-middle">{{partido.visitante}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-</div> -->
 <div *ngIf="!loading"
     class="animated fadeIn">
     <div class="row no-gutters m-3 m-mobile">

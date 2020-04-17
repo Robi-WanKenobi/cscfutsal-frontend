@@ -14,18 +14,12 @@ export class CalendarComponent implements OnInit {
   equipoId: string;
   equipo: EquipoModel;
   calendario: CalendarioModel[]=[];
-  calendario_1: CalendarioModel[] = [];
-  calendario_2: CalendarioModel[] = [];
   months = [
     {id: '1', name: 'Gener'},
     {id: '2', name: 'Febrer'},
     {id: '3', name: 'Març'},
     {id: '4', name: 'Abril'},
     {id: '5', name: 'Maig'},
-    {id: '6', name: 'Juny'},
-    {id: '7', name: 'Juliol'},
-    {id: '8', name: 'Agost'},
-    {id: '9', name: 'Setembre'},
     {id: '10', name: 'Octubre'},
     {id: '11', name: 'Novembre'},
     {id: '12', name: 'Desembre'},
@@ -38,7 +32,6 @@ export class CalendarComponent implements OnInit {
     private route: ActivatedRoute
   ) { 
     this.equipoId = this.route.parent.snapshot.paramMap.get('id');
-    this.selectedMonth = (new Date().getMonth() + 1).toString();
   }
 
   ngOnInit(): void {
@@ -46,12 +39,6 @@ export class CalendarComponent implements OnInit {
       this.equipo = equipo;
     })
     this.backend.getCalendario(this.equipoId).subscribe(calendario => {
-      for (let i = 0; i < calendario.length / 2; i++) {
-        this.calendario_1.push(calendario[i]);
-      }
-      for (let i = calendario.length / 2; i < calendario.length; i++) {
-        this.calendario_2.push(calendario[i]);
-      }
       this.calendario = calendario;
       this.loading = false;
     })

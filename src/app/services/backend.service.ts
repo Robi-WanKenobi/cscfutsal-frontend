@@ -13,7 +13,7 @@ import { CalendarioModel } from '../models/calendario.model';
 })
 export class BackendService {
 
-  token;
+  token: string;
   baseURL = 'http://cscfutsal.com:3000'
   admin = `${this.baseURL}/admin/`;
   equipo = `${this.baseURL}/equipo/`;
@@ -173,6 +173,7 @@ export class BackendService {
   }
 
   uploadImage(id:string, image:any) {
+    this.getToken();
     const headers = new HttpHeaders({ 'Authorization': this.token });
     return this.http.post(`${this.jugador}image/${id}`, image, {headers});
   }
