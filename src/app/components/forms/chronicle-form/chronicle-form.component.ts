@@ -40,7 +40,7 @@ export class ChronicleFormComponent implements OnInit {
       this.loading = true
       this.backend.getPartidoJornada(this.equipoId, this.searchJornada).subscribe(partido => {
         this.cronica.local = partido.local;
-        this.cronica.resultado = partido.resultado;
+        this.cronica.resultado = partido.resultado.replace(/\s+/g, '');;
         this.cronica.visitante = partido.visitante;
         this.cronica.jornada = this.searchJornada;
         this.searched = true;

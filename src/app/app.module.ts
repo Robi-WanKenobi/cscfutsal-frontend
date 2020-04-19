@@ -48,6 +48,7 @@ import { FilterStatsPipe } from './pipes/filter-stats.pipe';
 import { SortPipe } from './pipes/sort.pipe';
 import { FilterCalendarPipe } from './pipes/filter-calendar.pipe';
 import { ContactComponent } from './pages/contact/contact.component';
+import { ChronicleComponent } from './components/team/chronicle/chronicle.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { ContactComponent } from './pages/contact/contact.component';
     ChronicleFormComponent,
     ChronicleEditFormComponent,
     BannerCardComponent,
-    ContactComponent
+    ContactComponent,
+    ChronicleComponent
   ],
   imports: [
     BrowserModule,

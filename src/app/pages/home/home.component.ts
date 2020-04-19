@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from 'src/app/services/backend.service';
 import { EquipoModel } from 'src/app/models/equipo.model';
+import { AnalyticsService } from 'src/app/services/analytics.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',

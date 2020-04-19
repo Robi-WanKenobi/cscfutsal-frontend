@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +8,8 @@ import { HttpClient } from '@angular/common/http';
 export class AuthService {
 
   token: string;
-  baseURL = 'http://cscfutsal.com:3000'
-  admin = `${this.baseURL}/admin/`;
+  baseURL: string;
+  admin: string;
   isLogged: boolean;
 
   constructor(private http: HttpClient) {
@@ -16,6 +17,8 @@ export class AuthService {
     if (this.token) {
       this.isLogged = true;
     }
+    this.baseURL = environment.backURL;
+    this.admin = `${this.baseURL}/admin/`;
   }
 
     // ADMIN

@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { EquipoModel } from 'src/app/models/equipo.model';
 import { ClasificacionModel } from 'src/app/models/clasificacion.model';
 import { PartidoModel } from 'src/app/models/partido.model';
+import { CronicaModel } from 'src/app/models/cronica.model';
 
 @Component({
   selector: 'app-classification',
@@ -17,7 +18,8 @@ export class ClassificationComponent implements OnInit {
   jornada:number;
   current:number;
   classification: ClasificacionModel[] = [];
-  results: PartidoModel[] = []
+  results: PartidoModel[] = [];
+  cronicaId: string;
   loading = true;
 
   constructor(
@@ -35,14 +37,23 @@ export class ClassificationComponent implements OnInit {
     this.backend.getJornadaActual(this.equipoId).subscribe(jornada => {
       this.jornada = Number(jornada);
       this.current = this.jornada;
-      this.getClassification(this.jornada);
       this.getResultados(this.equipoId, this.jornada);
+      this.getCronica(this.equipoId, this.jornada);
+      this.getClassification(this.equipoId, this.jornada);
     })
   }
+
+  getCronica(equipoId:string, jornada:number) {
+    if(jornada) {
+      this.backend.getEquipoCronica(equipoId, jornada).subscribe(team => {
+        this.cronicaId = team.cronicas[0]? team.cronicas[0]._id : null;
+      })
+    }
+  }
   
-  getClassification(jornada:number){
+  getClassification(equipoId:string, jornada:number){
     if(jornada){
-      this.backend.getClasificacion(this.equipoId, this.jornada).subscribe(classification => {
+      this.backend.getClasificacion(equipoId, jornada).subscribe(classification => {
         this.classification = classification;
         this.loading = false;
       })
@@ -63,7 +74,8 @@ export class ClassificationComponent implements OnInit {
     if(this.jornada <= 30) {
       this.jornada++;
       this.getResultados(this.equipoId, this.jornada);
-      this.getClassification(this.jornada);
+      this.getCronica(this.equipoId, this.jornada);
+      this.getClassification(this.equipoId, this.jornada);
     }
   }
 
@@ -72,7 +84,8 @@ export class ClassificationComponent implements OnInit {
     if(this.jornada >= 1) {
       this.jornada--;
       this.getResultados(this.equipoId, this.jornada);
-      this.getClassification(this.jornada);
+      this.getCronica(this.equipoId, this.jornada);
+      this.getClassification(this.equipoId, this.jornada);
     }
   }
 
@@ -80,6 +93,7 @@ export class ClassificationComponent implements OnInit {
     this.loading = true;
     this.jornada = this.current;
     this.getResultados(this.equipoId, this.jornada);
-    this.getClassification(this.jornada);
+    this.getCronica(this.equipoId, this.jornada);
+    this.getClassification(this.equipoId, this.jornada);
   }
 }

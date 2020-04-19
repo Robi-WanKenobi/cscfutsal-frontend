@@ -14,7 +14,15 @@ export class CalendarComponent implements OnInit {
   equipoId: string;
   equipo: EquipoModel;
   calendario: CalendarioModel[]=[];
-  months = [
+  months: {}[] = [];
+  selectedMonth: string;
+  loading = true;
+
+  constructor(
+    private backend: BackendService,
+    private route: ActivatedRoute
+  ) {
+    this.months = [
     {id: '10', name: 'Octubre'},
     {id: '11', name: 'Novembre'},
     {id: '12', name: 'Desembre'},
@@ -23,14 +31,7 @@ export class CalendarComponent implements OnInit {
     {id: '3', name: 'Març'},
     {id: '4', name: 'Abril'},
     {id: '5', name: 'Maig'}
-  ];
-  selectedMonth: string;
-  loading = true;
-
-  constructor(
-    private backend: BackendService,
-    private route: ActivatedRoute
-  ) { 
+    ];
     this.equipoId = this.route.parent.snapshot.paramMap.get('id');
   }
 

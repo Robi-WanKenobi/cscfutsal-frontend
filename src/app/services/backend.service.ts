@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 import { PartidoModel } from '../models/partido.model';
 import { ClasificacionModel } from '../models/clasificacion.model';
 import { CalendarioModel } from '../models/calendario.model';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -14,14 +15,17 @@ import { CalendarioModel } from '../models/calendario.model';
 export class BackendService {
 
   token: string;
-  baseURL = 'http://cscfutsal.com:3000'
-  admin = `${this.baseURL}/admin/`;
-  equipo = `${this.baseURL}/equipo/`;
-  jugador = `${this.baseURL}/jugador/`;
-  cronica = `${this.baseURL}/cronica/`;
+  baseURL: string;
+  equipo : string;
+  jugador : string;
+  cronica : string;
 
   constructor(private http: HttpClient) {
     this.getToken();
+    this.baseURL = environment.backURL;
+    this.equipo = `${this.baseURL}/equipo/`;
+    this.jugador = `${this.baseURL}/jugador/`;
+    this.cronica = `${this.baseURL}/cronica/`;
   }
 
   getToken() {
@@ -72,7 +76,10 @@ export class BackendService {
   }
 
   getEquipoCronica(id:string, jornada:number){
-    return this.http.get(`${this.equipo}${id}/cronicas/${jornada}`);
+    return this.http.get(`${this.equipo}${id}/cronicas/${jornada}`)
+    .pipe(
+      map((equipo:EquipoModel) => equipo)
+    )
   }
 
   getJugadores(id:string){

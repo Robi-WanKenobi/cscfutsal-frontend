@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { AnalyticsService } from './services/analytics.service';
 
 @Component({
   selector: 'app-root',
@@ -7,6 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  constructor(){
+  constructor(private router: Router,
+              private analytics: AnalyticsService){
+    this.analytics.navTrack(this.router);
   }
 }

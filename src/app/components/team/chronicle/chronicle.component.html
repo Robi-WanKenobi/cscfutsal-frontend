@@ -1,0 +1,96 @@
+<div *ngIf="cronicaId"
+    class="m-mobile animated fadeIn slow mt-5 mb-5">
+    <button class="fs-l btn btn-outline-orange btn-block sharp-borders"
+        type="button"
+        data-toggle="collapse"
+        data-target="#cronica"
+        aria-expanded="false"
+        aria-controls="collapseExample">
+    <span>Crònica</span>
+    </button>
+    <div class="collapse device-fs m-5 row no-gutters m-mobile"
+        id="cronica">
+        <div class="col-sm-12 mb-5">
+            <table class="table table-sm">
+                <tbody>
+                    <tr>
+                        <td class="text-left w-40">
+                            {{cronica.local}}
+                        </td>
+                        <td class="text-center w-20">
+                            {{cronica.resultado}}
+                        </td>
+                        <td class="text-right w-40">
+                            {{cronica.visitante}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-4 pr-2 pl-2"
+            *ngIf="cronica.goleadores?.length > 0">
+            <h1 class="text-center t-orange fs-m">Golejadors</h1>
+            <table class="table table-sm">
+                <tbody>
+                    <tr *ngFor="let goleador of cronica.goleadores, let i = index"
+                        class="animated fadeIn fast">
+                        <td class="text-left w-33">
+                            <i class="fa fa-futbol-o"></i>
+                        </td>
+                        <td class="text-center w-33">
+                            {{goleador.jugador.nombre}}
+                        </td>
+                        <td class="text-right w-33">
+                            {{goleador.minuto}}'
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-4 pr-2 pl-2"
+            *ngIf="cronica.asistentes?.length > 0">
+            <h1 class="text-center t-orange fs-m">Assistents</h1>
+            <table class="table table-sm">
+                <tbody>
+                    <tr *ngFor="let asistente of cronica.asistentes; let i = index">
+                        <td class="text-left w-33">
+                            <i class="fa fa-arrow-circle-right"></i>
+                        </td>
+                        <td class="text-center w-33">
+                            {{asistente.jugador.nombre}}
+                        </td>
+                        <td class="text-right w-33">
+                            {{asistente.minuto}}'
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-4 pr-2 pl-2"
+            *ngIf="amonestados?.length > 0">
+            <h1 class="text-center t-orange fs-m">Amonestats</h1>
+            <table class="table table-sm">
+                <tbody>
+                    <tr *ngFor="let amonestado of amonestados, let i = index"
+                        class="animated fadeIn fast">
+                        <td class="text-left w-33">
+                            <i class="fa fa-square"
+                                [ngClass]="{'red-card': amonestado.tipo === 'roja',
+                                        'yellow-card': amonestado.tipo === 'amarilla'}">
+                            </i>
+                        </td>
+                        <td class="text-center w-33">
+                            {{amonestado.jugador.nombre}}
+                        </td>
+                        <td class="text-right w-33">
+                            {{amonestado.minuto}}'
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="text-justify mt-5 mb-5 device-fs"
+            [innerHTML]="cronica.texto">
+        </div>
+    </div>
+</div>

@@ -52,16 +52,10 @@
         display: none;
     }
     .device-fs {
-        font-size: 13px;
+        font-size: 14px;
     }
     .player-card {
         width: 33% !important;
-    }
-    .hide-editor {
-        display: none;
-    }
-    .show-instead-of-editor {
-        display: block;
     }
 }
 
@@ -71,6 +65,12 @@
     }
     .fs-m {
         font-size: 17px;
+    }
+    .hide-editor {
+        display: none;
+    }
+    .show-instead-of-editor {
+        display: block;
     }
 }
 
@@ -121,7 +121,7 @@
         display: none;
     }
     .device-fs {
-        font-size: 12px;
+        font-size: 13px;
     }
     .inner-player-card {
         width: 70% !important;

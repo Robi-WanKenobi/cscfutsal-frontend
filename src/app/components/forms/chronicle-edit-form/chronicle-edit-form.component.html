@@ -160,7 +160,14 @@
     <hr>
     <div class="row no-gutters justify-content-center mt-5">
         <ckeditor [editor]="editor"
-            [(ngModel)]="texto">
+            [config]="{
+                toolbar: [
+                'bold', 'italic','|',
+                'undo', 'redo'
+                ]
+            }"
+            [(ngModel)]="texto"
+            class="w-80">
         </ckeditor>
     </div>
 </div>
@@ -170,7 +177,7 @@
     <div class="row no-gutters justify-content-center mt-5">
         <div class="alert alert-warning"
             role="alert">
-            <i class="fas fa-sad-cry"></i> L'editor de text no està disponible a la versió de mòbil!
+            <i class="far fa-frown-open"></i> L'editor de text no està disponible a la versió de mòbil!
         </div>
     </div>
 </div>

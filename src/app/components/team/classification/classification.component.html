@@ -26,6 +26,8 @@
         class="text-center animated fadeIn fast mb-4 mt-4">
         <i class="fas fa-spinner t-orange fa-spin fa-2x"></i>
     </div>
+    <app-chronicle *ngIf="!loading"
+        [cronicaId]="cronicaId"></app-chronicle>
     <div *ngIf="!loading"
         class="m-5 animated fadeIn slow m-mobile">
         <table class="table table-sm">
@@ -41,9 +43,9 @@
             <tbody class="device-fs">
                 <tr *ngFor="let result of results"
                     [ngClass]="{'t-orange': result.csc}">
-                    <td class="text-left">{{result.local}}</td>
-                    <td class="text-center">{{result.resultado}}</td>
-                    <td class="text-right">{{result.visitante}}</td>
+                    <td class="text-left w-40">{{result.local}}</td>
+                    <td class="text-center w-20">{{result.resultado}}</td>
+                    <td class="text-right w-40">{{result.visitante}}</td>
                 </tr>
             </tbody>
         </table>
