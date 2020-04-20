@@ -8,6 +8,13 @@
         class="text-center animated fadeIn fast mb-4 mt-4">
         <i class="fas fa-spinner t-orange fa-spin fa-2x"></i>
     </div>
+    <div *ngIf="!loading && errorFromFCF"
+        class="row no-gutters justify-content-center mt-4">
+        <div class="alert alert-warning sharp-borders"
+            role="alert">
+            Ups! Les dades no estan disponibles actualment.
+        </div>
+    </div>
 </div>
 
 <div *ngIf="!loading"

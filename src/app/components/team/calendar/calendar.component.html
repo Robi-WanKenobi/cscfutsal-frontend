@@ -4,7 +4,15 @@
     class="text-center animated fadeIn fast mb-4 mt-4">
     <i class="fas fa-spinner t-orange fa-spin fa-2x"></i>
 </div>
-<div class="tool-bar animated fadeIn">
+<div *ngIf="!loading && errorFromFCF"
+    class="row no-gutters justify-content-center mt-4">
+    <div class="alert alert-warning sharp-borders"
+        role="alert">
+        Ups! Les dades no estan disponibles actualment.
+    </div>
+</div>
+<div *ngIf="!errorFromFCF"
+    class="tool-bar animated fadeIn">
     <div class="row no-gutters justify-content-center">
         <div class="col-md-8">
             <ng-select [items]="months"

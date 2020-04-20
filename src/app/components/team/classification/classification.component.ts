@@ -21,6 +21,7 @@ export class ClassificationComponent implements OnInit {
   results: PartidoModel[] = [];
   cronicaId: string;
   loading = true;
+  errorFromFCF = false;
 
   constructor(
     private backend: BackendService,
@@ -55,8 +56,9 @@ export class ClassificationComponent implements OnInit {
     if(jornada){
       this.backend.getClasificacion(equipoId, jornada).subscribe(classification => {
         this.classification = classification;
-        this.loading = false;
-      })
+      }, (error) => {
+        this.errorFromFCF = true;
+      }).add(() => this.loading = false)
     }
   }
 
@@ -64,8 +66,9 @@ export class ClassificationComponent implements OnInit {
     if(jornada){
       this.backend.getResultados(equipoId, jornada).subscribe(resultados =>{
         this.results = resultados;
-        this.loading = false;
-      })
+      }, (error) => {
+        this.errorFromFCF = true;
+      }).add(() => this.loading = false)
     }
   }
 

@@ -17,6 +17,7 @@ export class CalendarComponent implements OnInit {
   months: {}[] = [];
   selectedMonth: string;
   loading = true;
+  errorFromFCF = false;
 
   constructor(
     private backend: BackendService,
@@ -41,7 +42,8 @@ export class CalendarComponent implements OnInit {
     })
     this.backend.getCalendario(this.equipoId).subscribe(calendario => {
       this.calendario = calendario;
-      this.loading = false;
-    })
+    }, (err) => {
+      this.errorFromFCF = true;
+    }).add(() => this.loading = false )
   }
 }

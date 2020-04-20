@@ -16,6 +16,7 @@ export class MatchesComponent implements OnInit, OnChanges {
   partidos: PartidoModel[] = [];
   partidosRequest: Observable<PartidoModel>[] = [];
   loading = true;
+  errorFromFCF = false;
 
   constructor(private backend: BackendService) {
   }
@@ -30,7 +31,11 @@ export class MatchesComponent implements OnInit, OnChanges {
       })
       forkJoin(this.partidosRequest).subscribe(partidos =>{
         this.partidos = partidos
-      }).add(()=> this.loading = false)
+      },
+      error => {
+        this.errorFromFCF = true;
+      })
+      .add(()=> this.loading = false)
     }
   }
 
