@@ -1,4 +1,20 @@
-<div class="row mt-4 ml-0 mr-0 animated fadeIn">
+<div class="row mb-4 mt-4 no-gutters animated justify-content-center fadeIn">
+    <div class="mb-1 mt-1 b-grey border-0 text-center ml-3 mr-3 w-100 alert alert-warning alert-dismissible fade show"
+        role="alert">
+        <a class="contact-anchor"
+            routerLink="/contact">
+            <strong class="t-orange fs-s">Busquem jugadors</strong>
+        </a>
+        <span class="t-dark fs-s"> per a la temporada 2020-2021!</span>
+        <button type="button"
+            class="close"
+            data-dismiss="alert"
+            aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+</div>
+<div class="row mt-0 ml-0 mr-0 animated fadeIn">
     <div class="col-md-6">
         <app-matches [type]="'Últims'"
             [jornada]="current"

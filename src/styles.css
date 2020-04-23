@@ -257,6 +257,11 @@ body {
     align-self: center;
 }
 
+.contact-anchor:hover {
+    color: #FF9300 !important;
+    text-decoration: underline;
+}
+
 
 /* Team cards */
 

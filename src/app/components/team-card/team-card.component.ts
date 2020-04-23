@@ -18,7 +18,7 @@ export class TeamCardComponent implements OnInit {
   }
 
   toTeam(id:string){
-    this.router.navigateByUrl(`/team/${id}`);
+    this.router.navigateByUrl(`/teams/team/${id}`);
   }
 
 }

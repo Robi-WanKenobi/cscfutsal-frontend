@@ -16,7 +16,7 @@ const routes: Routes = [
     { path: 'club', component: ClubComponent},
     { path: 'contact', component: ContactComponent},
     {    
-        path: 'team/:id', 
+        path: 'teams/team/:id', 
         component: TeamComponent,
         children: TEAM_ROUTES   
     },

@@ -1,12 +1,15 @@
-<div class="mr-5 ml-5">
-    <app-banner-card [floatImg]="'left'"
-        [imgHtml]="tlfImg"
-        [textHtml]="tlfText"></app-banner-card>
+<app-ad></app-ad>
+
+<div class="row no-gutters">
+    <div class="col-lg-6">
+        <app-banner-card [floatImg]="'none'"
+            [textHtml]="tlfText"></app-banner-card>
+    </div>
+    <div class="col-lg-6">
+        <app-banner-card [floatImg]="'none'"
+            [textHtml]="emailText"></app-banner-card>
+    </div>
 </div>
-<div class="mr-5 ml-5">
-    <app-banner-card [floatImg]="'right'"
-        [imgHtml]="emailImg"
-        [textHtml]="emailText"></app-banner-card>
-</div>
+
 <app-banner-card [floatImg]="'none'"
     [textHtml]="redesText"></app-banner-card>
