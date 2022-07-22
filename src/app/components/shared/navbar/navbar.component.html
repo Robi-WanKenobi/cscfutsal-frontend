@@ -57,9 +57,9 @@
             </li>
             <li class="nav-item text-center">
                 <a class="nav-link t-white hide-on-collapse"
-                    [swal]="shopSwal">Botiga</a>
+                    href="https://maralsports.com/es/mi-zona-club-117">Botiga</a>
                 <a class="nav-link t-white show-on-collapse"
-                    [swal]="shopSwal"
+                    href="https://maralsports.com/es/mi-zona-club-117"
                     data-toggle="collapse"
                     data-target="#navbarNav">Botiga</a>
             </li>
@@ -86,28 +86,3 @@
         </ul>
     </div>
 </nav>
-
-
-<swal #shopSwal
-    [swalOptions]="{
-        icon: 'info',
-        allowOutsideClick: true,
-        showConfirmButton: false,
-        showCancelButton: false
-    }">
-    <div *swalPortal>
-        <p class="fs-m t-dark">Aquesta clau és necessària per accedir a la botiga</p>
-        <p class="fs-l font-weight-bold"
-            #copyText>P15CSC</p>
-        <button type="button"
-            ngxClipboard
-            [cbContent]="'P15CSC'"
-            title="Popover title"
-            data-toggle="popover"
-            data-content="Copiat"
-            class="btn btn-outline-orange"
-            (click)="toShop()">
-            Copiar i anar
-        </button>
-    </div>
-</swal>

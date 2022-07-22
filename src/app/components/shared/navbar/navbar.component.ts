@@ -13,17 +13,4 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  toShop() {
-    Swal.fire({
-      title: 'Copiat',
-      text: 'Obrint botiga...',
-      icon: 'success',
-      showConfirmButton: false
-    })
-    setTimeout(() =>{
-      window.open('https://play2015.es/csc-futsal/', '_blank')
-      Swal.close();
-    }, 1500)
-  }
-
 }
